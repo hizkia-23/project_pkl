@@ -11,7 +11,6 @@ use App\Http\Controllers\Admin\CalonNasabahController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Operator\AdminController;
 use App\Models\JobOpening;
 use Illuminate\Support\Facades\Route;
@@ -161,3 +160,4 @@ Route::middleware('auth')->group(function (): void {
 });
 
 // require __DIR__ . '/auth.php';
+require __DIR__ . '/karir.php';

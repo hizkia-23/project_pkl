@@ -189,13 +189,8 @@
                 </a>
             </div>
 
-            <!-- Right CTA Button (Desktop) -->
-            <div class="hidden md:flex items-center">
-                <a href="{{ route('login') }}"
-                    class="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-sm hover:shadow transition duration-200">
-                    Masuk / Daftar
-                </a>
-            </div>
+            <!-- Right CTA Button / User Menu (Desktop) -->
+            @include('partials.navbar-user', ['mode' => 'desktop'])
 
             <!-- Mobile Hamburger Button -->
             <button id="mobileMenuBtn" type="button" aria-label="Toggle Navigation"
@@ -223,12 +218,7 @@
                     class="px-3 py-2 rounded-lg transition {{ request()->routeIs('karir') ? 'bg-orange-50 text-orange-600 font-bold' : 'text-gray-700 hover:bg-gray-50' }}">
                     Peluang Karir
                 </a>
-                <div class="pt-2 border-t border-gray-100">
-                    <a href="#masuk"
-                        class="w-full block text-center bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-sm transition">
-                        Masuk / Daftar
-                    </a>
-                </div>
+                @include('partials.navbar-user', ['mode' => 'mobile'])
             </div>
         </div>
     </header>
@@ -364,6 +354,26 @@
             }
         });
     </script>
+    <!-- Konfigurasi & Modul Karir (Front-End Mock M1) -->
+    <script>
+        window.EWF_DEMO_ENABLED = true; // Set false untuk mematikan panel DEMO di pojok kiri bawah
+        window.EWF_CAREER_URLS = {
+            beranda: "{{ route('beranda') }}",
+            karir: "{{ route('karir') }}",
+            lowonganDetail: "{{ route('lowongan.detail', '__slug__') }}",
+            jalur: "{{ route('jalur') }}",
+            profilLengkapi: "{{ route('profil.lengkapi') }}",
+            profil: "{{ route('profil') }}",
+            riwayat: "{{ route('lamaran.riwayat') }}",
+            sandi: "{{ route('sandi') }}",
+            login: "{{ route('login') }}",
+            register: "{{ route('register') }}"
+        };
+    </script>
+    <script src="{{ asset('js/career-dummy.js') }}"></script>
+    <script src="{{ asset('js/career-mock.js') }}"></script>
+    <script src="{{ asset('js/career-auth-bridge.js') }}"></script>
+    <script src="{{ asset('js/career-ui.js') }}"></script>
 </body>
 
 </html>
